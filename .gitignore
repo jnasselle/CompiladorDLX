@@ -1,6 +1,7 @@
 *
 !.gitignore
 !Compilador.java
-!EvalVisitor.java
+!EvalVisitor*.java
 !TablaSimbolo.java
 !cRestringido.g4
+!Value.java

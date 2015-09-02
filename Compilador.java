@@ -4,8 +4,9 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 public class Compilador {
-
+	public TablaSimbolo tablaSimbolo;
 	public static void main(String[] args) throws Exception {
+		tablaSimbolo = new TablaSimbolo();
 		String inputFile = null;
 		if(args.length > 0)
 			inputFile = args[0];
@@ -17,7 +18,7 @@ public class Compilador {
 		CommonTokenStream myTokens = new CommonTokenStream(myLexer);
 		cRestringidoParser myParser = new cRestringidoParser(myTokens);
 		ParseTree myTree = myParser.cRestringido(); // parse; start at cRestringido
-		EvalVisitor eval = new EvalVisitor();
+		EvalVisitor1 eval = new EvalVisitor1(tablaSimbolo);
 		eval.visit(myTree);
 		System.exit(0);
 	}
